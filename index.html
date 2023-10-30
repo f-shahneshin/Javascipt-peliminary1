@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        var allProduct = [
+            { id: 1, name: 'laptop', price: 20000000 },
+            { id: 2, name: 'phone', price: 25000000 },
+            { id: 3, name: 'notebook', price: 120000 },
+            { id: 4, name: 'pen', price: 30000 },
+            { id: 5, name: 'ereaser', price: 18000 },
+            { id: 6, name: 'tablet', price: 16000000 },
+        ];
+
+        var userBasket = [
+            { id: 1, name: 'phone', price: 25000000 },
+            { id: 2, name: 'ereaser', price: 18000 },
+        ];
+
+
+        var userProduct = prompt('محصول خود را انتخاب کنید : \n 1-laptop \n 2-phone \n 3-notebook \n 4-pen \n 5-ereaser \n 6-tablet');
+        var requestProduct;
+        var isInShop = allProduct.some(function (product) {
+            if (product.name === userProduct) {
+                requestProduct = product;
+                return true;
+            }
+        })
+
+        if (isInShop === true) {
+            var newProduct = {
+                id: 3,
+                name: requestProduct.name,
+                price: requestProduct.price
+            };
+
+            userBasket.push(newProduct);
+            console.log(userBasket);
+        } else {
+            console.log('محصول موجود نیست');
+        };
+
+        var sum = 0;
+
+        userBasket.forEach(function (product) {
+            sum += product.price;
+        })
+        alert('قیمت کل خرید شما : ' + sum)
+
+
+
+
+    </script>
+
+</body>
+
+</html>
